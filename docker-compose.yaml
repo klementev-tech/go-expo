@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  go-expo:
+    image: klementev-tech/go-expo
+    container_name: go-expo
+    environment:
+      GE_LOG_LEVEL: ${GE_LOG_LEVEL}
+    volumes:
+      - ./configs/default.yaml:/etc/go-expo/config.yaml
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
